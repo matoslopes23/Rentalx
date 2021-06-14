@@ -1,7 +1,7 @@
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 import { inject, injectable } from "tsyringe";
 import { sign } from "jsonwebtoken"
-import { compare } from "bcrypt"
+import { compare } from "bcryptjs"
 
 
 interface IRequest {
@@ -44,10 +44,16 @@ class AuthenticateUserUserCase {
             expiresIn: "1d"
 
         });
-        return {
-            user, 
+
+        const tokenReturn: IResponse = {
             token,
+            user: {
+                name:user.name,
+                email:user.email,
+
+            }
         }
+        return tokenReturn;
     }
 }
 

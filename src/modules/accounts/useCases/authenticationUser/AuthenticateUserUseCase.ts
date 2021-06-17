@@ -1,8 +1,8 @@
-import { IUsersRepository } from "../../repositories/IUsersRepository";
-import { inject, injectable } from "tsyringe";
-import { sign } from "jsonwebtoken"
 import { compare } from "bcryptjs"
+import { sign } from "jsonwebtoken"
+import { inject, injectable } from "tsyringe";
 
+import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 interface IRequest {
     email:string;
@@ -17,7 +17,7 @@ interface IResponse {
 }
 
 injectable()
-class AuthenticateUserUserCase {
+class AuthenticateUserUseCase {
 
     constructor(
         @inject("UsersRepository")
@@ -39,7 +39,7 @@ class AuthenticateUserUserCase {
         }
 
         // Gerar o jsonwebtoken
-        const token = sign({},"52ede99f8ca87482b7af042639852f6b",{
+        const token = sign({},"a4b18dcc866bd28894802edcd7f391ed",{
             subject:user.id,
             expiresIn: "1d"
 
@@ -51,10 +51,11 @@ class AuthenticateUserUserCase {
                 name:user.name,
                 email:user.email,
 
-            }
+            },
         }
+        
         return tokenReturn;
     }
 }
 
-export {AuthenticateUserUserCase}
+export { AuthenticateUserUseCase }

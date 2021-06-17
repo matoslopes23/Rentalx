@@ -13,7 +13,7 @@ export async function ensureAuthenticated(request: Request, response:Response, n
     const [, token] = authHeader.split(" ")
 
     try {
-        const decoded = verify(token, "52ede99f8ca87482b7af042639852f6b");
+        const decoded = verify(token, "a4b18dcc866bd28894802edcd7f391ed");
         console.log(decoded);
     } catch {
         throw new Error("Invalid token!!")

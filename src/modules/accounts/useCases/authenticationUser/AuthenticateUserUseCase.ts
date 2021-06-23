@@ -14,7 +14,7 @@ interface IResponse {
         email:string
     },
     token: string;
-}
+} 
 
 injectable()
 class AuthenticateUserUseCase {
@@ -23,7 +23,7 @@ class AuthenticateUserUseCase {
         @inject("UsersRepository")
         private usersRepository:IUsersRepository
     ){}
-    async execute({ email, password}:IRequest): Promise<IResponse> {
+    async execute({ email, password }:IRequest): Promise<IResponse> {
         // Usuario existe
         const user = await this.usersRepository.findByEmail(email);
 

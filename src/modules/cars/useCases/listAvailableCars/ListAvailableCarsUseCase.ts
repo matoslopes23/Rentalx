@@ -8,7 +8,7 @@ interface IRequest {
     name?: string;
 }
 
-class ListCarsUseCase {
+class ListAvailableCarsUseCase {
     constructor (
         private carsRepository: ICarsRepository
     ){}
@@ -19,4 +19,4 @@ class ListCarsUseCase {
     }
 }
 
-export { ListCarsUseCase }
+export { ListAvailableCarsUseCase }

@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add tsconfig-paths -d
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add dayjs
 
 PATH: 
   C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\matos\bin;C:\Python39\Scripts;C:\Python39;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\Yarn\bin;C:\Program Files\nodejs;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\matos\AppData\Local\Microsoft\WindowsApps;C:\Users\matos\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\matos\AppData\Local\Yarn\bin;C:\Users\matos\AppData\Roaming\npm
@@ -23,9 +23,10 @@ npm manifest:
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-      "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn --poll src/server.ts",
+      "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn --poll src/shared/infra/http/server.ts",
       "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
-      "test": "jest"
+      "test": "jest",
+      "seed:admin":"ts-node-dev src/shared/infra/typeorm/seed/admin.ts"
     },
     "dependencies": {
       "@types/bcryptjs": "^2.4.2",
@@ -61,7 +62,8 @@ npm manifest:
       "jest": "^27.0.6",
       "prettier": "^2.3.0",
       "ts-jest": "^27.0.3",
-      "ts-node-dev": "^1.1.6"
+      "ts-node-dev": "^1.1.6",
+      "tsconfig-paths": "^3.9.0"
     }
   }
 

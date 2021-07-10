@@ -3,7 +3,7 @@ import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } fro
 import { v4 as uuidV4 } from "uuid"
 
 @Entity("rentals")
-class Renatl {
+class Rental {
 
     // @PrimaryColumn()
     id:string;
@@ -40,4 +40,4 @@ class Renatl {
     }
 }
 
-export{ Renatl }
+export{ Rental }

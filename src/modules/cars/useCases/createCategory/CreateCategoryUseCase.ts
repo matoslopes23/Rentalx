@@ -8,7 +8,6 @@ interface IRequest {
     description:string;
 }
 
-
 @injectable()
 class  CreateCategoryUseCase{
     
@@ -26,7 +25,7 @@ class  CreateCategoryUseCase{
         }
 
 
-        this.categoriesRepository.create({name, description})
+        await this.categoriesRepository.create({name, description})
     }
 
 }

@@ -10,11 +10,20 @@ class CreateUserController {
 
         await createUserUseCase.execute({
             name, 
-            email, 
+            email,
             password, 
             driver_license
         })
-        return response.status(201).send();
+        return response.status(201).send('Usuário cadastrado com sucesso');
+    }
+
+    async findAllUsers(request:Request, response:Response): Promise<Response> {
+        const createUserUseCase = container.resolve(CreateUserUseCase);
+
+        const users = await createUserUseCase.findAllUsers()
+
+        return response.status(200).json(users)
+
     }
 }
 export  { CreateUserController };

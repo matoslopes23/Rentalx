@@ -29,7 +29,7 @@ class CreateRentalUseCase {
         const minimumHours = 24;
     //  Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário.
         const carUnavailable = await this.rentalsRepository.findOpenRentalByCar(car_id);
-
+        console.log(carUnavailable)
         if(carUnavailable){
             throw new AppError("Car is unavalable")
         }
@@ -46,7 +46,7 @@ class CreateRentalUseCase {
             dateNow,
             expected_return_date, 
         );
-
+        console.log(compare)
         if(compare < minimumHours){
             throw new AppError("Invalid Return time!")
         }

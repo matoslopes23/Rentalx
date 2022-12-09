@@ -1,9 +1,9 @@
-import {container}  from "tsyringe";
+import { container } from "tsyringe";
 
-import "@shared/container/providers"
+import "@shared/container/providers";
 
-import { ICategoriesRepository } from "@modules/cars/repositories/ICategoriesRepository"
-import { CategoriesRepository } from "@modules/cars/infra/typeorm/repositories/CategoriesRepository"
+import { ICategoriesRepository } from "@modules/cars/repositories/ICategoriesRepository";
+import { CategoriesRepository } from "@modules/cars/infra/typeorm/repositories/CategoriesRepository";
 
 import { ISpecificationRepository } from "@modules/cars/repositories/ISpecificationRepository";
 import { SpecificationRepository } from "@modules/cars/infra/typeorm/repositories/SpecificationsRepository";
@@ -17,30 +17,27 @@ import { CarImagesRepository } from "@modules/cars/infra/typeorm/repositories/Ca
 import { IRentalsRepository } from "@modules/rentals/repositories/IRentalsRepository";
 import { RentalsRepository } from "@modules/rentals/infra/typeorm/repositories/RentalsRepository";
 
-//ICategoriesRepository
+// ICategoriesRepository
 container.registerSingleton<ICategoriesRepository>(
-    "CategoriesRepository",
-    CategoriesRepository
+  "CategoriesRepository",
+  CategoriesRepository,
 );
 container.registerSingleton<ISpecificationRepository>(
-    "SpecificationRepository",
-    SpecificationRepository
+  "SpecificationRepository",
+  SpecificationRepository,
 );
 
 container.registerSingleton<IUsersRepository>(
-    "UsersRepository",
-    UsersRepository
+  "UsersRepository",
+  UsersRepository,
 );
 
-container.registerSingleton<ICarsRepository>(
-    "CarsRepository",
-    CarsRepository
-)
+container.registerSingleton<ICarsRepository>("CarsRepository", CarsRepository);
 container.registerSingleton<ICarsImageRepository>(
-    "CarImagesRepository",
-    CarImagesRepository
-)
+  "CarImagesRepository",
+  CarImagesRepository,
+);
 container.registerSingleton<IRentalsRepository>(
-    "RentalsRepository",
-    RentalsRepository
-)
+  "RentalsRepository",
+  RentalsRepository,
+);
